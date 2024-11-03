@@ -1,9 +1,4 @@
 <template>
-  div.byul>div#jongho
-
-
-
-
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -39,22 +34,24 @@
     </div>
   </div>
 </nav>
-<div class = "container mt-4">
-  <h5>Vue 개발자의 블로그입니다</h5>
-  <p>- Vue로 만들었음 -</p>
+
+  <div class="list-container">
+  <router-link to="/">홈페이지</router-link>
+  <router-link to="/list">리스트페이지</router-link>
+  </div>
 
 
-</div>
+<router-view :블로그글 = "블로그글"></router-view>
 
-<List :블로그글 = "블로그글"/>
+<!-- <List :블로그글 = "블로그글"/> -->
 
 
 
 </template>
 
 <script>
-import List from "./components/List.vue"
-import blog from "./data"
+
+import blog from "./assets/data"
 blog;
 export default {
   name: 'App',
@@ -65,14 +62,22 @@ export default {
     }
   },
   components: {
-    List,
+   
   }
 }
 </script>
 
 <style>
 
-
+.list-container {
+  margin : none;
+  text-align: left;
+  padding-left: 20px; /* 부모 요소 왼쪽 간격 */
+}
+.list-container a {
+  display : block;
+  padding : 5px;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
